@@ -1,0 +1,32 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>SNo</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Capacity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody> 
+        @for(list of lists; track list.ti; let index = $index ){
+            <tr  >
+                <td>{{index+1}}</td>
+                <td>{{list.ProName}}</td>
+                <td>{{list.ProDescription}}</td>
+                <td>{{list.ProCapacity}}</td>
+                <td>                    
+                    <span> <button mat-raised-button color="primary" (click)="onUpdate(list.ProID)" >update</button>
+                    </span>
+                    <span>
+                        <button mat-raised-button color="warn" (click)="onDelete(list.ProID)" >Delete</button>
+                    </span>
+                </td>
+                
+            </tr>
+        }@empty {
+            <p>No program added yet!</p>}
+    </tbody>
+</table> 
+

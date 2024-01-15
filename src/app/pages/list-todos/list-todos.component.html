@@ -1,0 +1,53 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Todos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <button  mat-raised-button color="primary" (click)="addTodo()">Add Todos</button>
+
+        <table class="table " >
+            <thead>
+                <tr>
+                    <th>SNo</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (item of list; track $index;) {
+                    @if (item.completed==true ){
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td>Completed</td>
+                            <td>
+                                <span><button mat-raised-button color="primary" (click)="updateTodo(item.id)" >Update</button></span>
+                             |  <span><button mat-raised-button color="warn" (click)="deleteTodo(item.id)">Delete</button></span>
+                            </td>
+                        </tr>
+                    }@else {
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td>Not completed</td>
+                            <td>
+                                <span><button mat-raised-button color="primary" (click)="updateTodo(item.id)">Update</button></span>
+                            |    <span><button mat-raised-button color="warn" (click)="deleteTodo(item.id)">Delete</button></span>
+                            </td>
+                            </tr>
+                    }
+                    <!-- <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.completed}}</td>
+                        </tr> -->
+                }@empty {
+                    <p>No todo added yet! </p>
+                }
+                
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
