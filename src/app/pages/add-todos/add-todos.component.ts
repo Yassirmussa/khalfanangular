@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoserviceService } from '../../service/todoservice.service';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-todos',
@@ -13,6 +14,7 @@ export class AddTodosComponent  implements OnInit{
   // form unaipa jina
   addTodo!:FormGroup
 
+ 
 
   ngOnInit(): void {
     this.add()
@@ -25,7 +27,11 @@ export class AddTodosComponent  implements OnInit{
   }
 
 
-  constructor (private todoService:TodoserviceService, private router:Router){}
+  constructor (
+    private todoService:TodoserviceService,
+    private router:Router,     
+    private dialogRef: MatDialogRef <AddTodosComponent>
+    ){}
 
   onSave(){
     const values = this.addTodo.value;
@@ -33,7 +39,9 @@ export class AddTodosComponent  implements OnInit{
     this.todoService.add(values).subscribe((data:any)=>{
       console.log("The value which added are ",data)
       this.addTodo.reset()
-      this.router.navigateByUrl('/listtodos')
+      this.dialogRef.close(); // Close the dialog
+      this.router.navigate(['/listtodos'])
+      
     })
   }
 
