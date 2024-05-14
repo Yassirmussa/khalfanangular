@@ -23,7 +23,9 @@ import { AddTodosComponent } from './pages/add-todos/add-todos.component';
 import {MatCardModule} from '@angular/material/card';
 import { EditprogramComponent } from './pages/editprogram/editprogram.component';
 import { UpdatetodoComponent } from './pages/updatetodo/updatetodo.component';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { IndexComponent } from './pages/index/index.component';
+import { RegisterComponent } from './pages/register/register.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog'
     ListTodosComponent,
     AddTodosComponent,
     EditprogramComponent,
-    UpdatetodoComponent
+    UpdatetodoComponent,
+    IndexComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

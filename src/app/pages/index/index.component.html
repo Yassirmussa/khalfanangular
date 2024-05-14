@@ -1,0 +1,26 @@
+
+
+<div class="form">
+    <mat-card-content>
+        <mat-card>
+            <form [formGroup]="logform">
+                <h4>login</h4>
+                <h3>Acme Nursery and Primary school</h3>
+                    <table>
+                        <tr>
+                            <th><label for="">Email </label></th>
+                            <td><input type="email" name="email" formControlName="email" placeholder="Enter your email" ></td>
+                        </tr><br>
+                        <tr>
+                            <th><label for="">Password</label></th>
+                            <td><input type="password" name="password" formControlName="password" placeholder="password" ></td>
+                        </tr> <br>
+                    </table>
+            
+               
+                <button mat-raised-button color="primary" type="submit" class="login" [disabled]="logform.invalid" (click)="onLogin()"> login </button>
+            <a mat-list-item routerLink="register"><button mat-raised-button color="warn" class="register">register</button></a>
+            </form>
+        </mat-card>
+    </mat-card-content>
+</div>
